@@ -38,8 +38,9 @@ int main(int argc, char *argv[])
 		cudaMemcpy(&b,dev_b,sizeof(int),cudaMemcpyDeviceToHost);
 	    printf("\nmax =  %d ",b);
 		cudaFree(dev_a);		// Free the allocated memory
-	}
 		cudaFree(dev_b);
+	}
+	
 	else if(argc > 3){
 			printf("Too many args to be parsed\n");
 	}
