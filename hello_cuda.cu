@@ -4,7 +4,7 @@
 
 __global__ void hello()
 {
-	printf("GPU:: Hello world!!");
+	printf("GPU:: Hello world!!\n");
 }
 
 int main()
