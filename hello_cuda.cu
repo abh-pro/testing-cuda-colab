@@ -2,7 +2,7 @@
 #include<cuda.h>
 #include<time.h>
 
-__global__void hello()
+__global__ void hello()
 {
 	printf("GPU:: Hello world!!");
 }
