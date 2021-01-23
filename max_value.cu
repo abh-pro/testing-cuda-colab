@@ -7,7 +7,7 @@ __global__ void max_value(int *a, int *b) // kernel subroutine called from the h
 {
 	int i = threadIdx.x; // getting the thread id 
 
-	*b = a[0]; equating the value of the address in c to a predefined value in a matrix.
+	*b = a[0]; // equating the value of the address in c to a predefined value in a matrix.
 
 	if(a[i] > *b) // getting the value from the address of c variable.
 	{
