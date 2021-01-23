@@ -34,10 +34,10 @@ int main(int argc, char *argv[])
 		}
 		cudaMemcpy(dev_a,a,arr_size*sizeof(int),cudaMemcpyHostToDevice); // sending the array into gpu memory.
 		max_value<<<1,arr_size>>>(dev_a,dev_b);
-		cudaMemcpy(&c,dev_c,sizeof(int),cudaMemDeviceToHost);
-	    printf("\nmax =  %d ",c);
+		cudaMemcpy(&b,dev_b,sizeof(int),cudaMemcpyDeviceToHost);
+	    printf("\nmax =  %d ",b);
 		cudaFree(dev_a);		// Free the allocated memory
-		cudaFree(dev_c);
+		cudaFree(dev_b);
     	printf("");
 	}
 	else if(argc > 2){
