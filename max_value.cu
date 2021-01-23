@@ -38,7 +38,6 @@ int main(int argc, char *argv[])
 		cudaMemcpy(&b,dev_b,sizeof(int),cudaMemcpyDeviceToHost);
 	    printf("\nmax =  %d ",b);
 		cudaFree(dev_a);		// Free the allocated memory
-    	printf("");
 	}
 		cudaFree(dev_b);
 	else if(argc > 3){
