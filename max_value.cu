@@ -18,9 +18,10 @@ __global__ void max_value(int *a, int *b) // kernel subroutine called from the h
 
 int main(int argc, char *argv[])
 {
-	if(argc == 2)
+	if(argc == 3)
 	{
 		int arr_size = atoi(argv[1]);
+		int rem = atoi(argv[2]);
 		srand(time(NULL)); // seed entry for max randomness
 		int a[arr_size];
 		int b;
@@ -30,17 +31,17 @@ int main(int argc, char *argv[])
 
 		for(int i=0;i<arr_size;i++)
 		{
-			a[i] = rand() % 1000 + i;
+			a[i] = rand() % rem + i;
 		}
 		cudaMemcpy(dev_a,a,arr_size*sizeof(int),cudaMemcpyHostToDevice); // sending the array into gpu memory.
 		max_value<<<1,arr_size>>>(dev_a,dev_b);
 		cudaMemcpy(&b,dev_b,sizeof(int),cudaMemcpyDeviceToHost);
 	    printf("\nmax =  %d ",b);
 		cudaFree(dev_a);		// Free the allocated memory
-		cudaFree(dev_b);
     	printf("");
 	}
-	else if(argc > 2){
+		cudaFree(dev_b);
+	else if(argc > 3){
 			printf("Too many args to be parsed\n");
 	}
 	else
